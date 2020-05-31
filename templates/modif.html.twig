@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administración de Peliculas{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" value="Guardar">
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peliculas{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr class="bg-primary text-white">
+                <th colspan="6"><h3>Administración de peliculas</h3></th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Descripcion</th>
+                <th>
+                     <a class="btn btn-success" href="{{ path('add_pelicula') }}">Afegir</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pelicula in peliculas %}
+                <tr>
+                    <td>{{ pelicula.id }}</td>
+                    <td>{{ pelicula.nombre }}</td>
+                    <td>{{ pelicula.genero }}</td>
+                    <td>{{ pelicula.descripcion }}</td>
+                    <td>
+                        <a class="btn btn-secondary" href="{{ path('modif_pelicula', {'id' : pelicula.id}) }}">Modificar</a>
+                        <a class="btn btn-danger" href="{{ path('elim_pelicula', {'id' : pelicula.id}) }}">Eliminar</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
